@@ -1,0 +1,31 @@
+<%- include('../partials_edit/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <h1 class="text-center mb-5">Edit Data Inventory</h1>
+        <form action="/inventory/update/<%= id %>" method="POST">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama Barang</label>
+                <select class="form-select" aria-label="Pilih Barang" name="id_barang" required>
+                <option value="<%= id_barang %>"><%= nama_barang %></option>
+                    <% for(var i=0; i < data_barang.length; i++){ %>
+                        <option value="<%= data_barang[i].id_barang %>"><%= data_barang[i].nama_barang %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama Ruangan</label>
+                <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_ruangan" required>
+                    <option value="<%= id_ruangan %>"><%= nama_ruangan %></option>
+                        <% for(var i=0; i < data_ruangan.length; i++){ %>
+                            <option value="<%= data_ruangan[i].id_ruangan %>"><%= data_ruangan[i].nama_ruangan %></option>
+                        <% } %>
+                    </select>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials_edit/__foot.ejs') %>

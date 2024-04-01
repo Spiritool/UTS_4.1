@@ -1,0 +1,22 @@
+<%- include('../partials_edit/__head.ejs') %>
+
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <h1 class="text-center">Update Data Ruangan</h1>
+        <form action="/ruangan/update/<%= id %>" method="POST">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama Ruangan</label>
+                <input type="text" class="form-control" name="nama_ruangan" value="<%= nama_ruangan %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Kode Ruangan</label>
+                <input type="text" class="form-control" name="kode_ruangan" value="<%= kode_ruangan %>" required>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials_edit/__foot.ejs') %>

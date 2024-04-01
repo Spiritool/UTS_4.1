@@ -1,0 +1,51 @@
+<%- include('../partials_edit/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <h1 class="text-center mb-5">Edit Data Barang</h1>
+        <form action="/barang/update/<%= data.id_barang %>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Foto Barang</label>
+                <input type="file" class="form-control" name="gambar_barang" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" name="nama_barang" value="<%= data.nama_barang %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Merk</label>
+                <input type="text" class="form-control" name="merk_barang" value="<%= data.merk_barang %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Kategori</label>
+                <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_kategori" required>
+                    <option value="<%= data.id_kategori %>"><%= data.nama_kategori %></option>
+                    <% for(var i=0; i < data_kategori.length; i++){ %>
+                        <option value="<%= data_kategori[i].id_kategori %>"><%= data_kategori[i].nama_kategori %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Tahun Perolehan</label>
+                <input type="date" class="form-control" name="tahun_perolehan" value="<%= data.tahun_perolehan %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Expired</label>
+                <input type="date" class="form-control" name="expired" value="<%= data.expired %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Jumlah</label>
+                <input type="text" class="form-control" name="jumlah_barang" value="<%= data.jumlah_barang %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Harga</label>
+                <input type="text" class="form-control" name="harga_barang" value="<%= data.harga_barang %>" required>
+            </div>
+            
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials_edit/__foot.ejs') %>

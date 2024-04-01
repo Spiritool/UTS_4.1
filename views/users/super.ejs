@@ -1,0 +1,16 @@
+<%- include('../partials/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <%- include('../partials/__messagess.ejs') %>
+                <h1 class="text-center">Selamat Datang</h1>
+                <div class="row">
+                    <div class="col">
+                        <h1>Hello : <%= email %> </h1>
+                        <a href="/logout">logout</a>
+                    </div>
+                </div>
+    </div>
+
+<%-  include('../partials/__foot') %>

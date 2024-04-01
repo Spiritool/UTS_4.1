@@ -1,0 +1,68 @@
+<%- include('../partials/__head.ejs') %>
+
+  <body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <%- include('../partials/__messagess.ejs') %>
+            <h1 class="text-center">Data Barang</h1>
+                <div class="row">
+                    <div class="col">
+                        <a href="/barang/create" class="btn btn-sm btn-success">Tambah</a>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Gambar</th>
+                                    <th scope="col">Nama Barang</th>
+                                    <th scope="col">Merk Barang</th>
+                                    <th scope="col">Kategori</th>
+                                    <th scope="col">Tahun Perolehan</th>
+                                    <th scope="col">Expired</th>
+                                    <th scope="col">Harga</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th colspan="2" scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i = 0; i < data.length; i++){ %>
+                                    <tr>
+                                        <th scope="row"><%= (i+1) %></th>
+                                        <td>
+                                            <img src="/images/upload/<%= data[i].gambar_barang %>" height="100">
+                                        </td>
+                                        <td>
+                                            <%= data[i].nama_barang %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].merk_barang %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].nama_kategori %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].tahun_perolehan %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].expired %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].jumlah_barang %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].harga_barang %>
+                                        </td>
+                                        <td>
+                                            <a href="/barang/edit/<%= data[i].id_barang %>" class="btn btn-sm btn-warning">Edit</a>
+                                            <a href="/barang/delete/<%= data[i].id_barang %>" class="btn btn-sm btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <%} %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    </div>
+
+
+    <%- include('../partials/__foot.ejs') %>
+    

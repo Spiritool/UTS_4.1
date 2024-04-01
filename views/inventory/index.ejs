@@ -1,0 +1,48 @@
+<%- include('../partials/__head.ejs') %>
+
+  <body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <%- include('../partials/__messagess.ejs') %>
+            <h1 class="text-center">Data Inventory</h1>
+                <div class="row">
+                    <div class="col">
+                        <a href="/inventory/create" class="btn btn-sm btn-success">Tambah</a>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nama Barang</th>
+                                    <th scope="col">Nama Ruangan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th colspan="2" scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i = 0; i < data.length; i++){ %>
+                                    <tr>
+                                        <th scope="row"><%= (i+1) %></th>
+                                        <td>
+                                            <%= data[i].nama_barang %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].nama_ruangan %>
+                                        </td>
+                                        <td>
+                                            <%= data[i].jumlah_barang %>
+                                        </td>
+                                        <td>
+                                            <a href="/inventory/edit/<%= data[i].id_inventory %>" class="btn btn-sm btn-warning">Edit</a>
+                                            <a href="/inventory/delete/<%= data[i].id_inventory %>" class="btn btn-sm btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <%} %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    </div>
+
+
+    <%- include('../partials/__foot.ejs') %>
+    

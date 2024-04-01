@@ -1,0 +1,27 @@
+<%- include('../partials/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <%- include('../partials/__messagess.ejs') %>
+            <h1 class="text-center">Login User</h1>
+                <div class="row">
+                    <div class="col">
+                        <form action="/log" method="POST" >
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Email</label>
+                                <input type="text" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Password</label>
+                                <input type="text" class="form-control" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-sm btn-success">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    </div>
+
+    <%- include('../partials/__foot.ejs') %>

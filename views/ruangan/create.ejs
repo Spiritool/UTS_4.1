@@ -1,0 +1,23 @@
+<%- include('../partials_create/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <h1 class="text-center">Input Data Ruangan</h1>
+        <form action="/ruangan/store" method="POST">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama Ruangan</label>
+                <input type="text" class="form-control" name="nama_ruangan" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Kode Ruangan</label>
+                <input type="text" class="form-control" name="kode_ruangan" required>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+<%- include('../partials_create/__foot.ejs') %>
