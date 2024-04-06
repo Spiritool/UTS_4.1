@@ -1,0 +1,47 @@
+<%- include('../partials/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <h1 class="text-center mb-5">Input Akun</h1>
+        <form action="/akun/store" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Foto</label>
+                <input type="file" class="form-control" name="foto" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" name="nama" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Alamat</label>
+                <input type="text" class="form-control" name="alamat" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">No Telp</label>
+                <input type="text" class="form-control" name="no_telp" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Email</label>
+                <input type="text" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Password</label>
+                <input type="text" class="form-control" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Jabatan</label>
+                <select class="form-select" aria-label="Pilih Level Akun" name="level_users" required>
+                    <option selected>Pilih Kategori</option>
+                        <option value="1">User</option>
+                        <option value="2">Admin</option>
+                </select>
+            </div>
+            
+            
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials/__foot.ejs') %>

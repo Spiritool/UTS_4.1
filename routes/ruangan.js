@@ -6,12 +6,16 @@ const Model_Users = require('../model/Model_Users.js')
 
 router.get('/', async function (req, res, next) {
 try{
+    let level_users = req.session.level;
     let id = req.session.userId;
     let Data = await Model_Users.getId(id);
     let rows = await Model_Ruangan.getAll();
     if(Data.length > 0) {
     res.render('ruangan/index', {
-        data: rows
+        data: rows,
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     });
     }
 } catch {
@@ -22,11 +26,15 @@ try{
 
 router.get('/create', async function (req, res, next) {
 try {
+    let level_users = req.session.level;
     let id = req.session.userId;
     let Data = await Model_Users.getId(id);
     if(Data[0].level_users == 2){
     res.render('ruangan/create', {
-        nama_ruangan: '' 
+        nama_ruangan: '',
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     })
     }
     else if (Data[0].level_users == 1) {
@@ -57,6 +65,7 @@ router.post('/store', async function (req, res, next) {
 
 router.get('/edit/(:id)', async function (req, res, next) {
 try{
+    let level_users = req.session.level;
     let id_users = req.session.userId;
     let id = req.params.id;
     let rows = await Model_Ruangan.getId(id);
@@ -65,7 +74,10 @@ try{
     res.render('ruangan/edit', {
         id: rows[0].id_ruangan,
         nama_ruangan: rows[0].nama_ruangan,
-        kode_ruangan: rows[0].kode_ruangan
+        kode_ruangan: rows[0].kode_ruangan,
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     })
     }
     else if (Data[0].level_users == "1"){

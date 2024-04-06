@@ -8,6 +8,7 @@ class Model_Users {
                     reject(err);
                 } else {
                     resolve(rows);
+                    console.log(rows);
                 }
             });
         });

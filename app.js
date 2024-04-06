@@ -14,6 +14,7 @@ var ruanganRouter = require('./routes/ruangan');
 var barangRouter = require('./routes/barang');
 var inventoryRouter = require('./routes/inventory');
 var superusersRouter = require('./routes/superusers');
+var akunRouter = require('./routes/akun');
 
 var app = express();
 
@@ -49,6 +50,7 @@ app.use('/ruangan', ruanganRouter);
 app.use('/barang', barangRouter);
 app.use('/inventory', inventoryRouter);
 app.use('/superusers', superusersRouter);
+app.use('/akun', akunRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

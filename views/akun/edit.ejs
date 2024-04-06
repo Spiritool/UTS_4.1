@@ -1,0 +1,37 @@
+<%- include('../partials/__head.ejs') %>
+
+<body>
+    <%- include('../partials/__navbar.ejs') %>
+    <div class="container">
+        <h1 class="text-center mb-5">Edit Data Barang</h1>
+        <form action="/akun/update/<%= data.id_users %>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Foto Profil</label>
+                <input type="file" class="form-control" name="foto">
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" name="nama" value="<%= data.nama %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Alamat</label>
+                <input type="text" class="form-control" name="alamat" value="<%= data.alamat %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">No Telp</label>
+                <input type="text" class="form-control" name="no_telp" value="<%= data.no_telp %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Email</label>
+                <input type="text" class="form-control" name="email" value="<%= data.email %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+            </div>
+        </form>
+    </div>
+    <%- include('../partials/__foot.ejs') %>

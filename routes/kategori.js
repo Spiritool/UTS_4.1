@@ -4,33 +4,18 @@ var connection = require('../config/database.js');
 const Model_Kategori = require('../model/Model_Kategori.js');
 const Model_Users = require('../model/Model_Users.js')
 
-// router.get('/test', async function (req, res, next) {
-//     try {
-//         let id = req.session.userId;
-//         let Data = await Model_Users.getId(id);
-//         if (Data.length > 0) {
-//             let rows = await Model_Produk.getAll();
-//             res.render('produk/index', {
-//                 data: rows
-//             })
-//         } else {
-//             res.redirect('/login')
-//             req.flash('error', 'Terjadi kesalahan pada fungsi')
-//         }
-//     } catch (err) {
-//         res.redirect('/login')
-//         console.log(err);
-//     }
-// });
-
 router.get('/', async function (req, res, next) {
 try {
     let id = req.session.userId;
     let Data = await Model_Users.getId(id);
     let rows = await Model_Kategori.getAll();
+    let level_users = req.session.level;
     if (Data.length > 0) {
     res.render('kategori/index', {
-        data: rows
+        data: rows,
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     });
     }
 } catch (err) {
@@ -42,11 +27,15 @@ try {
 
 router.get('/create', async function (req, res, next) {
 try {
+    let level_users = req.session.level;
     let id = req.session.userId;
     let Data = await Model_Users.getId(id);
     if(Data[0].level_users == "2") {
     res.render('kategori/create', {
-        nama_kategori: ''
+        nama_kategori: '',
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     })
     }
     else if (Data[0].level_users == "1"){
@@ -76,6 +65,7 @@ router.post('/store', async function (req, res, next) {
 
 router.get('/edit/(:id)', async function (req, res, next) {
 try{
+    let level_users = req.session.level;
     let id_users = req.session.userId;
     let id = req.params.id;
     let rows = await Model_Kategori.getId(id);
@@ -83,7 +73,10 @@ try{
     if(Data[0].level_users == "2") {
     res.render('kategori/edit', {
         id: rows[0].id_kategori,
-        nama_kategori: rows[0].nama_kategori
+        nama_kategori: rows[0].nama_kategori,
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     })
     }
     else if (Data[0].level_users == "1"){

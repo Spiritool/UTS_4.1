@@ -13,7 +13,12 @@ router.get('/', async function(req, res, next) {
         res.redirect('/logout')
       }else{res.render('users/super', {
         title: 'Users Home',
-        email: Data[0].email
+        email: Data[0].email,
+        level: req.session.level,
+        session_foto: req.session.foto,
+        session_nama: req.session.nama,
+        alamat: req.session.alamat,
+        no_telp: req.session.no_telp,
       });
     }
     // akhir kondisi

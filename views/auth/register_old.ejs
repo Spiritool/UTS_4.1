@@ -1,0 +1,41 @@
+<%- include('../partials/__head.ejs') %>
+<body>
+    <div class="container">
+        <%- include('../partials/__messagess.ejs') %>
+            <h1 class="text-center">Register User</h1>
+                <div class="row">
+                    <div class="col">
+                        <form action="/saveusers" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Foto</label>
+                                <input type="file" class="form-control" name="foto" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" class="form-control" name="nama" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Alamat</label>
+                                <input type="text" class="form-control" name="alamat" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">No Telp</label>
+                                <input type="text" class="form-control" name="no_telp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Email</label>
+                                <input type="text" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Password</label>
+                                <input type="text" class="form-control" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-sm btn-success">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    </div>
+
+    <%- include('../partials/__foot.ejs') %>

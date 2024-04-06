@@ -1,4 +1,4 @@
-<%- include('../partials_create/__head.ejs') %>
+<%- include('../partials/__head.ejs') %>
 
 <body>
     <%- include('../partials/__navbar.ejs') %>
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Tahun Perolehan</label>
-                <input type="date" class="form-control" name="tahun_perolehan" required>
+                <input type="text" class="form-control" min="1900" max="2099" step="1" name="tahun_perolehan" required>
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Expired</label>
@@ -48,4 +48,4 @@
             </div>
         </form>
     </div>
-    <%- include('../partials_create/__foot.ejs') %>
+    <%- include('../partials/__foot.ejs') %>

@@ -7,7 +7,9 @@
             <h1 class="text-center">Data Barang</h1>
                 <div class="row">
                     <div class="col">
+                        <%  if (level == "2") { %>
                         <a href="/barang/create" class="btn btn-sm btn-success">Tambah</a>
+                        <% } %>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -18,9 +20,11 @@
                                     <th scope="col">Kategori</th>
                                     <th scope="col">Tahun Perolehan</th>
                                     <th scope="col">Expired</th>
-                                    <th scope="col">Harga</th>
                                     <th scope="col">Jumlah</th>
+                                    <th scope="col">Harga</th>
+                                    <%  if (level == "2") { %>
                                     <th colspan="2" scope="col">Aksi</th>
+                                    <% } %>
                                 </tr>
                             </thead>
                             <tbody>
@@ -28,7 +32,7 @@
                                     <tr>
                                         <th scope="row"><%= (i+1) %></th>
                                         <td>
-                                            <img src="/images/upload/<%= data[i].gambar_barang %>" height="100">
+                                            <img src="/images/upload/<%= data[i].gambar_barang %>" height="100" width="150">
                                         </td>
                                         <td>
                                             <%= data[i].nama_barang %>
@@ -51,10 +55,12 @@
                                         <td>
                                             <%= data[i].harga_barang %>
                                         </td>
+                                        <%  if (level == "2") { %>
                                         <td>
                                             <a href="/barang/edit/<%= data[i].id_barang %>" class="btn btn-sm btn-warning">Edit</a>
                                             <a href="/barang/delete/<%= data[i].id_barang %>" class="btn btn-sm btn-danger">Delete</a>
                                         </td>
+                                        <% } %>
                                     </tr>
                                     <%} %>
                             </tbody>

@@ -1,42 +1,70 @@
 <%- include('../partials/__head.ejs') %>
-<body>
-    <%- include('../partials/__navbar.ejs') %>
-    <div class="container">
-        <%- include('../partials/__messagess.ejs') %>
-            <h1 class="text-center">Register User</h1>
-                <div class="row">
-                    <div class="col">
-                        <form action="/saveusers" method="POST" enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Foto</label>
-                                <input type="file" class="form-control" name="foto" required>
+
+    <body class="bg-gradient-primary">
+
+        <div class="container">
+            <%- include('../partials/__messagess.ejs') %>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                            <div class="col-lg-7">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                    </div>
+                                    <form action="/saveusers" method="POST" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <small class="form-text text-muted">Pilih Foto Profil</small>
+                                            <input type="file" class="form-control" placeholder="Foto" name="foto" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" placeholder="Nama" name="nama">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" placeholder="Alamat" name="alamat">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" placeholder="No Telp" name="no_telp">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" placeholder="Email Address" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" placeholder="Password" name="password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            Register Account
+                                        </button>
+                                        <hr>
+                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Register with Google
+                                        </a>
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                        </a>
+                                    </form>
+                                    <!-- batas -->
+                                    
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="login.html">Already have an account? Login!</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="nama" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" name="alamat" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">No Telp</label>
-                                <input type="text" class="form-control" name="no_telp" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Email</label>
-                                <input type="text" class="form-control" name="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Password</label>
-                                <input type="text" class="form-control" name="password" required>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-sm btn-success">Register</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-    </div>
 
-    <%- include('../partials/__foot.ejs') %>
+        </div>
+
+        <%- include('../partials/__foot.ejs') %>

@@ -1,4 +1,4 @@
-<%- include('../partials_edit/__head.ejs') %>
+<%- include('../partials/__head.ejs') %>
 
 <body>
     <%- include('../partials/__navbar.ejs') %>
@@ -7,7 +7,7 @@
         <form action="/barang/update/<%= data.id_barang %>" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="nama" class="form-label">Foto Barang</label>
-                <input type="file" class="form-control" name="gambar_barang" required>
+                <input type="file" class="form-control" name="gambar_barang">
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Tahun Perolehan</label>
-                <input type="date" class="form-control" name="tahun_perolehan" value="<%= data.tahun_perolehan %>" required>
+                <input type="number" class="form-control" name="tahun_perolehan" min="1700" max="2099" step="1" value="<%= data.tahun_perolehan %>" required>
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Expired</label>
@@ -48,4 +48,4 @@
             </div>
         </form>
     </div>
-    <%- include('../partials_edit/__foot.ejs') %>
+    <%- include('../partials/__foot.ejs') %>

@@ -4,25 +4,21 @@
     <%- include('../partials/__navbar.ejs') %>
     <div class="container">
         <%- include('../partials/__messagess.ejs') %>
-            <h1 class="text-center">Data Inventory</h1>
+            <h1 class="text-center">Data Akun</h1>
                 <div class="row">
                     <div class="col">
-                        <%  if (level == "2") { %>
-                        <a href="/inventory/create" class="btn btn-sm btn-success">Tambah</a>
-                        <% } %>
+                        <a href="/akun/create" class="btn btn-sm btn-success">Tambah</a>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Gambar Barang</th>
-                                    <th scope="col">Nama Barang</th>
-                                    <th scope="col">Nama Ruangan</th>
-                                    <th scope="col">Jumlah</th>
-                                    <th scope="col">Tahun Perolehan</th>
-                                    <th scope="col">Expired</th>
-                                    <%  if (level == "2") { %>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Alamat</th>
+                                    <th scope="col">No Telp</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Level</th>
                                     <th colspan="2" scope="col">Aksi</th>
-                                    <% } %>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,29 +26,34 @@
                                     <tr>
                                         <th scope="row"><%= (i+1) %></th>
                                         <td>
-                                            <img src="/images/upload/<%= data[i].gambar_barang %>" height="100" width="150">
+                                            <img src="/images/users/<%= data[i].foto %>" height="100" width="200">
                                         </td>
                                         <td>
-                                            <%= data[i].nama_barang %>
+                                            <%= data[i].nama %>
                                         </td>
                                         <td>
-                                            <%= data[i].nama_ruangan %>
+                                            <%= data[i].alamat %>
                                         </td>
                                         <td>
-                                            <%= data[i].jumlah_barang %>
+                                            <%= data[i].no_telp %>
                                         </td>
                                         <td>
-                                            <%= data[i].tahun_perolehan %>
+                                            <%= data[i].email %>
                                         </td>
+                                        <% if (data[i].level_users == "1") { %>
                                         <td>
-                                            <%= data[i].expired %>
+                                            User
                                         </td>
-                                        <%  if (level == "2") { %>
+                                        <% } else if (data[i].level_users == "2") { %>
                                         <td>
-                                            <a href="/inventory/edit/<%= data[i].id_inventory %>" class="btn btn-sm btn-warning">Edit</a>
-                                            <a href="/inventory/delete/<%= data[i].id_inventory %>" class="btn btn-sm btn-danger">Delete</a>
+                                            Admin
                                         </td>
                                         <% } %>
+                                        
+                                        <td>
+                                            <a href="/akun/edit/<%= data[i].id_users %>" class="btn btn-sm btn-warning">Edit</a>
+                                            <a href="/akun/delete/<%= data[i].id_users %>" class="btn btn-sm btn-danger">Delete</a>
+                                        </td>
                                     </tr>
                                     <%} %>
                             </tbody>

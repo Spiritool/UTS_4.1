@@ -22,12 +22,16 @@ const upload = multer({ storage: storage })
 
 router.get('/', async function (req, res, next) {
 try{
+    let level_users = req.session.level;
     let id = req.session.userId;
     let Data = await Model_Users.getId(id);
     let rows = await Model_Barang.getAll();
     if (Data.length > 0) {
     res.render('barang/index', {
-        data: rows
+        data: rows,
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     });
     }
     } catch {
@@ -38,12 +42,16 @@ try{
 
 router.get('/create', async function (req, res, next) {
 try{
+    let level_users = req.session.level;
     let id = req.session.userId;
     let Data = await Model_Users.getId(id);
     let rows = await Model_Kategori.getAll();
     if(Data[0].level_users == "2") {
         res.render('barang/create', {
-            data: rows
+            data: rows,
+            level: level_users,
+            session_nama: req.session.nama,
+            session_foto: req.session.foto,
         })
     }
     else if (Data[0].level_users == "1"){
@@ -80,6 +88,7 @@ router.post('/store', upload.single("gambar_barang"), async function (req, res, 
 
 router.get('/edit/(:id)', async function (req, res, next) {
 try{
+    let level_users = req.session.level;
     let id = req.params.id;
     let id_users = req.session.userId;
     let rows = await Model_Barang.getId(id);
@@ -88,7 +97,10 @@ try{
     if(Data[0].level_users == "2") {
     res.render('barang/edit', {
         data: rows[0],
-        data_kategori: rows_kategori
+        data_kategori: rows_kategori,
+        level: level_users,
+        session_nama: req.session.nama,
+        session_foto: req.session.foto,
     })
     }
     else if (Data[0].level_users == "1"){

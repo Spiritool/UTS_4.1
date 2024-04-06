@@ -7,13 +7,17 @@
             <h1 class="text-center">Data Kategori</h1>
                 <div class="row">
                     <div class="col">
+                        <%  if (level == "2") { %>
                         <a href="/kategori/create" class="btn btn-sm btn-success">Tambah</a>
+                        <% } %>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Nama</th>
+                                    <%  if (level == "2") { %>
                                     <th colspan="2" scope="col">Aksi</th>
+                                    <% } %>
                                 </tr>
                             </thead>
                             <tbody>
@@ -23,10 +27,12 @@
                                         <td>
                                             <%= data[i].nama_kategori %>
                                         </td>
+                                        <%  if (level == "2") { %>
                                         <td>
                                             <a href="/kategori/edit/<%= data[i].id_kategori %>" class="btn btn-sm btn-warning">Edit</a>
                                             <a href="/kategori/delete/<%= data[i].id_kategori %>" class="btn btn-sm btn-danger">Delete</a>
                                         </td>
+                                        <% } %>
                                     </tr>
                                     <%} %>
                             </tbody>
